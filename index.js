@@ -58,7 +58,7 @@ Plugin.prototype.apply = function(compiler) {
             F.publicPath= compiler.options.output.publicPath + file;
           }
           if (compiler.options.output.path) {
-            F.path = path.join(compiler.options.output.path, file);
+            F.path = path.join(compiler.options.output.path.replace(/\[hash\]/g, stats.hash), file);
           }
           return F;
         });
